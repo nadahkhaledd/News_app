@@ -55,7 +55,7 @@ class _homeScreenState extends State<homeScreen> {
           } else if (snapShot.hasError) {
             return Text("Error loading data"); // assignment reload
           }
-          return Center(child: CircularProgressIndicator());
+          return Center(child: CircularProgressIndicator( color: Theme.of(context).primaryColor,));
         },
       ),
     );
