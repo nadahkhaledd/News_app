@@ -53,7 +53,21 @@ class _homeScreenState extends State<homeScreen> {
           if (snapShot.hasData) {
             return HomeTabs(snapShot.data!.sources);
           } else if (snapShot.hasError) {
-            return Text("Error loading data"); // assignment reload
+            print(snapShot.error);
+            return Center(
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
+                ),
+                onPressed:() {
+                  setState(() {
+                    newsFuture = getNewsSources();
+                  });
+                },
+                child: Text('Reload'),
+              ),
+            );
+            // assignment reload
           }
           return Center(child: CircularProgressIndicator( color: Theme.of(context).primaryColor,));
         },
