@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/home/newsCategoriesScreen.dart';
-import 'package:news_app/myThemeData.dart';
+import 'package:news1/home/categories/newsCategoriesScreen.dart';
+import 'package:news1/myThemeData.dart';
+
+import 'home/HomeScreen.dart';
+
+
 void main() {
   runApp(MyApp());
 }
@@ -15,9 +19,10 @@ class MyApp extends StatelessWidget {
         primaryColor : myThemeData.primaryColor,
       ),
       routes: {
-        newsCategories.routeName:(context)=>newsCategories(),
+        newsCategories.ROUTE_NAME:(context)=>newsCategories(),
+        HomeScreen.ROUTE_NAME: (context) => HomeScreen(),
       },
-      initialRoute: newsCategories.routeName,
+      initialRoute: HomeScreen.ROUTE_NAME,
 
     );
   }

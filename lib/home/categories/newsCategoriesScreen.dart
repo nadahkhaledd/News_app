@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/home/categoriesItem.dart';
+
+import 'categoriesItem.dart';
+
 
 class newsCategories extends StatefulWidget {
-  static const routeName = 'newsCategoriesScreen';
+  static const ROUTE_NAME = 'newsCategoriesScreen';
   @override
   _newsCategoriesState createState() => _newsCategoriesState();
 }
@@ -91,35 +93,3 @@ class _newsCategoriesState extends State<newsCategories> {
   }
 }
 
-
-/* Container(
-             child: Material(
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  width: 190.0,
-                  height: 160.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/icons/sports.png'),
-                      fit: BoxFit.fill,
-                  ),
-                ),
-                ),
-              ),
-            ),
-      ),*/
-
-/*InkWell(
-                 onTap: () {},
-                 child: Container(
-                   width: 190.0,
-                   height: 160.0,
-                   decoration: BoxDecoration(
-                     image: DecorationImage(
-                       image: AssetImage('assets/icons/sports.png'),
-                       fit: BoxFit.contain,
-                     ),
-                   ),
-                 ),
-               ),*/
