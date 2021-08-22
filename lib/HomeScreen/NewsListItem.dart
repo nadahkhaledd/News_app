@@ -53,6 +53,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:news_app/model/NewsItem.dart';
+//import 'package:news1/model/NewsItem.dart';
 
 InkWell newsListItem(NewsItem newsItem)
 {

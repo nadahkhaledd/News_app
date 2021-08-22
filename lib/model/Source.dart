@@ -8,13 +8,13 @@ class Source {
   String country;
 
   Source(
-      {required this.id,
-        required this.name,
-        required this.description,
-        required this.url,
-        required this.category,
-        required this.language,
-        required this.country});
+      { required this.id,
+         required this.name,
+         required this.description,
+         required this.url,
+         required this.category,
+         required this.language,
+         required this.country});
 
   factory Source.fromJson(Map<String, dynamic> map) {
     return Source(

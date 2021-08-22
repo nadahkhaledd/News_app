@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/myThemeData.dart';
 import 'package:news_app/sideMenu.dart';
+//import 'package:news1/sideMenu.dart';
+//import 'package:news1/myThemeData.dart';
+import 'package:news_app/myThemeData.dart';
 
 class Settings extends StatefulWidget {
 
@@ -12,7 +14,7 @@ class _SettingsState extends State<Settings> {
 
   List<String> languages = ['English', 'العربية'];
 
-   late  String language = 'English';
+     String language = 'English';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

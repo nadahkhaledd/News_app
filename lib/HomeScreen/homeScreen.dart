@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+//import 'package:news1/APIs/APImanager.dart';
+//import 'package:news1/model/SourcesRespone.dart';
 import 'package:news_app/APIs/APImanager.dart';
 import 'package:news_app/model/SourcesRespone.dart';
-import 'package:news_app/sideMenu.dart';
 
+import '../sideMenu.dart';
 import 'HomeTabs.dart';
 
 class homeScreen extends StatefulWidget {
@@ -13,7 +15,7 @@ class homeScreen extends StatefulWidget {
 
 class _homeScreenState extends State<homeScreen> {
 
-  late Future<SourcesResponse> newsFuture;
+   late Future<SourcesResponse> newsFuture;
   @override
   void initState() {
     // TODO: implement initState
@@ -47,30 +49,38 @@ class _homeScreenState extends State<homeScreen> {
 
       drawer: sideMenu(),
 
-      body: FutureBuilder<SourcesResponse>(
-        future: newsFuture,
-        builder: (builContext, snapShot) {
-          if (snapShot.hasData) {
-            return HomeTabs(snapShot.data!.sources);
-          } else if (snapShot.hasError) {
-            print(snapShot.error);
-            return Center(
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/pattern.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: FutureBuilder<SourcesResponse>(
+          future: newsFuture,
+          builder: (builContext, snapShot) {
+            if (snapShot.hasData) {
+              return HomeTabs(snapShot.data!.sources);
+            } else if (snapShot.hasError) {
+              print(snapShot.error);
+              return Center(
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
+                  ),
+                  onPressed:() {
+                    setState(() {
+                      newsFuture = getNewsSources();
+                    });
+                  },
+                  child: Text('Reload'),
                 ),
-                onPressed:() {
-                  setState(() {
-                    newsFuture = getNewsSources();
-                  });
-                },
-                child: Text('Reload'),
-              ),
-            );
-            // assignment reload
-          }
-          return Center(child: CircularProgressIndicator( color: Theme.of(context).primaryColor,));
-        },
+              );
+              // assignment reload
+            }
+            return Center(child: CircularProgressIndicator( color: Theme.of(context).primaryColor,));
+          },
+        ),
       ),
     );
   }
