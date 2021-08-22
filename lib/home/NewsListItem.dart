@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news1/model/NewsItem.dart';
+import 'package:news_app/model/NewsItem.dart';
 
 /*class NewsListItem extends StatefulWidget {
   NewsItem newsItem;
@@ -76,7 +76,7 @@ InkWell newsListItem(NewsItem newsItem)
               height: 13.0,
             ),
             Text(
-              newsItem.author,
+              newsItem.author.toString(),
               textAlign: TextAlign.start,
               style:
               TextStyle(fontWeight: FontWeight.w400, color: Colors.black45),

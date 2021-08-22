@@ -1,8 +1,9 @@
 import 'dart:convert';
-import 'package:news1/model/NewsResponse.dart';
-import 'package:news1/model/Source.dart';
-import 'package:news1/model/SourcesResponse.dart';
+
 import 'package:http/http.dart' as http;
+import 'package:news_app/model/NewsResponse.dart';
+import 'package:news_app/model/Source.dart';
+import 'package:news_app/model/SourcesResponse.dart';
 
 Future<SourcesResponse> getNewsSources() async {
   final uri = Uri.https("newsapi.org", "/v2/top-headlines/sources",

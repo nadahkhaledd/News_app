@@ -1,5 +1,4 @@
 
-import 'package:news1/model/SourcesResponse.dart';
 
 import 'Source.dart';
 

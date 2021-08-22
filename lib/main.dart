@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news1/home/categories/newsCategoriesScreen.dart';
-import 'package:news1/myThemeData.dart';
+import 'package:news_app/home/categories/newsCategoriesScreen.dart';
+import '';
+import 'package:news_app/myThemeData.dart';
 
 import 'home/HomeScreen.dart';
 

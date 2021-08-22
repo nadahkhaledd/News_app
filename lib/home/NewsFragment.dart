@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:news1/apis/apiManager.dart';
-import 'package:news1/home/NewsListItem.dart';
-import 'package:news1/model/NewsResponse.dart';
-import 'package:news1/model/Source.dart';
-import 'package:news1/model/SourcesResponse.dart';
+
+import 'package:news_app/apis/apiManager.dart';
+import 'package:news_app/model/NewsResponse.dart';
+import 'package:news_app/model/Source.dart';
+
+import 'NewsListItem.dart';
 //will call the api to the passed source
 class NewsFragment extends StatefulWidget {
   Source source;
@@ -14,7 +15,7 @@ class NewsFragment extends StatefulWidget {
 }
 
 class _NewsFragmentState extends State<NewsFragment> {
-  Future <NewsResponse> newsFuture;
+  late Future <NewsResponse> newsFuture;
   @override
   void initState() {
     // TODO: implement initState
@@ -31,9 +32,9 @@ class _NewsFragmentState extends State<NewsFragment> {
             {
               return ListView.builder(
                   itemBuilder: (context,index){
-                      return newsListItem(snapshot.data.articles[index]);
+                      return newsListItem(snapshot.data!.articles[index]);
                   },
-                itemCount: snapshot.data.articles.length,
+                itemCount: snapshot.data!.articles.length,
                 
               );
             }

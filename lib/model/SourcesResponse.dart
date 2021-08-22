@@ -4,7 +4,7 @@ class SourcesResponse {
   String status;
   List<Source> sources;
 
-  SourcesResponse({this.status, this.sources});
+  SourcesResponse({required this.status, required this.sources});
 
   factory SourcesResponse.fromJson(Map<String, dynamic> map) {
     List list = map['sources'];

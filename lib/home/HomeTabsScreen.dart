@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
-import 'package:news1/home/NewsFragment.dart';
-import 'package:news1/model/Source.dart';
-import 'package:news1/model/SourcesResponse.dart';
+import 'package:news_app/model/Source.dart';
 
+
+import 'NewsFragment.dart';
 import 'TabItem.dart';
 
 class HomeTabs extends StatefulWidget {
@@ -38,8 +38,7 @@ class _HomeTabsState extends State<HomeTabs> {
                       .toList()),
               Expanded(
                 child: TabBarView(
-                  children:
-                    widget.sources.map((source) => NewsFragment(source)).toList(),
+                  children: widget.sources.map((source) => NewsFragment(source)).toList(),
 
                 ),
               ),

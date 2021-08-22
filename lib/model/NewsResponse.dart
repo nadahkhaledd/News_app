@@ -1,4 +1,5 @@
-import 'package:news1/model/NewsItem.dart';
+
+import 'NewsItem.dart';
 
 class NewsResponse {
 
