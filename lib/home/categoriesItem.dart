@@ -6,8 +6,8 @@ InkWell categoriesItem (String imageUrl /*, Widget goToScreen*/){
       //the goToScreen will be used here
     },
     child: Container(
-      width: 170.0,
-      height: 160.0,
+      width: 130.0,
+      height: 135.0,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(imageUrl),

@@ -14,12 +14,12 @@ class _newsCategoriesState extends State<newsCategories> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 70.0,
+        toolbarHeight: 50.0,
         title: Center(
           child: Text(
             'News App',
           style: TextStyle(
-            fontSize: 23.0,
+            fontSize: 19.0,
             fontWeight: FontWeight.w700
           ),
           //  textAlign: TextAlign.right,
@@ -41,11 +41,11 @@ class _newsCategoriesState extends State<newsCategories> {
             fit: BoxFit.cover,
           ),
         ),
-        padding: EdgeInsets.all(25.0),
         child: Column(
 
           children: [
-            Text(
+            Padding(padding: EdgeInsets.all(10),
+            child: Text(
               'Pick your category of interest',
               style: TextStyle(
                 color: Colors.black54,
@@ -53,38 +53,34 @@ class _newsCategoriesState extends State<newsCategories> {
                 fontWeight: FontWeight.w700
               ),
             ),
-           SizedBox(
-             height: 23.0,
-           ),
-           Row(
-             children: [
-               categoriesItem('assets/icons/sports.png'),
-               categoriesItem('assets/icons/politics.png')
-
-             ],
-           ),
-            SizedBox(
-              height: 23.0,
             ),
-            Row(
+           Expanded(
+             child: Row(
+               children: [
+                 Expanded(child: categoriesItem('assets/icons/sports.png')),
+                 Expanded(child: categoriesItem('assets/icons/politics.png'))
+
+               ],
+             ),
+           ),
+            Expanded(child: Row(
               children: [
-                categoriesItem('assets/icons/health.png'),
-                categoriesItem('assets/icons/business.png')
+                Expanded(child: categoriesItem('assets/icons/health.png')),
+                Expanded(child: categoriesItem('assets/icons/business.png'))
 
               ],
             ),
-
-            SizedBox(
-              height: 23.0,
-            ),
-            Row(
-              children: [
-                categoriesItem('assets/icons/enviroment.png'),
-                categoriesItem('assets/icons/science.png')
-
-              ],
             ),
 
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(child: categoriesItem('assets/icons/enviroment.png')),
+                  Expanded(child: categoriesItem('assets/icons/science.png'))
+
+                ],
+              ),
+            ),
 
           ],
         ),
