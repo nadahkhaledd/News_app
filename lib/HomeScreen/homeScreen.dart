@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
 import 'package:news_app/HomeScreen/AtSearchingHome.dart';
@@ -17,16 +18,14 @@ class _homeScreenState extends State<homeScreen> {
   late Future<SourcesResponse> newsFuture;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     newsFuture = getNewsSources();
   }
-bool searching=false;
+  bool searching=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 70.0,
         actions: <Widget>[
           IconButton(
             icon: Icon(
@@ -35,16 +34,17 @@ bool searching=false;
             ),
             onPressed: () {
               setState(() {
-                if(searching==true)
+                if (searching==true)
                   searching=false;
                 else
                   searching=true;
               });
 
-              // do something
             },
           )
         ],
+        toolbarHeight: 70.0,
+        centerTitle: true,
         title: Center(
           child: Text(
             'Home',
@@ -66,7 +66,7 @@ bool searching=false;
 
       drawer: sideMenu(),
 
-      body:searching==false?
+      body: searching==false?
       Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -78,6 +78,7 @@ bool searching=false;
           future: newsFuture,
           builder: (builContext, snapShot) {
             if (snapShot.hasData) {
+             // print(snapShot.data!.sources);
               return HomeTabs(snapShot.data!.sources);
             } else if (snapShot.hasError) {
               print(snapShot.error);
@@ -111,11 +112,9 @@ bool searching=false;
               future: newsFuture,
               builder: (builContext, snapShot) {
                 if (snapShot.hasData) {
-
+                  //print(snapShot.data!.sources);
                   return AtSearchingHome(snapShot.data!.sources);
-                }
-                else if (snapShot.hasError) {
-
+                } else if (snapShot.hasError) {
                   print(snapShot.error);
                   return Center(
                     child: ElevatedButton(

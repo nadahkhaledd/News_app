@@ -1,16 +1,24 @@
 
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
 import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/model/Source.dart';
+import 'package:http/http.dart' as http;
+import 'package:news_app/model/NewsResponse.dart';
+import 'package:news_app/model/Source.dart';
+import 'package:news_app/model/SourcesRespone.dart';
+
 
 
 import 'NewsListItem.dart';
 
 class SearchResult extends StatefulWidget {
+  Source source;
   String search;
-  SearchResult(this.search);
+  SearchResult(this.source,this.search);
 
   @override
   _SearchResultState createState() => _SearchResultState();
@@ -18,6 +26,7 @@ class SearchResult extends StatefulWidget {
 
 class _SearchResultState extends State<SearchResult> {
   late Future <NewsResponse> newsFuture;
+
   @override
   void initState() {
     super.initState();
@@ -33,6 +42,7 @@ class _SearchResultState extends State<SearchResult> {
           {
             return ListView.builder(
               itemBuilder: (context,index){
+                print(snapshot.data!.articles[index]);
                 return newsListItem(snapshot.data!.articles[index]);
               },
               itemCount: snapshot.data!.articles.length,
@@ -47,7 +57,10 @@ class _SearchResultState extends State<SearchResult> {
                 ),
                 onPressed:() {
                   setState(() {
+
                     newsFuture=loadNewsAfterSearch(widget.search);
+
+
                   });
                 },
                 child: Text('Reload'),
