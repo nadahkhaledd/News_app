@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-
 import '../sideMenu.dart';
 import 'item.dart';
 
@@ -12,7 +10,6 @@ class newsCategoriesScreen extends StatefulWidget {
 }
 
 class _newsCategoriesScreenState extends State<newsCategoriesScreen> {
-  //static final Color primaryColor = Color.fromARGB(255, 57, 165, 82);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

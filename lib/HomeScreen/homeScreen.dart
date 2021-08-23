@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:news1/APIs/APImanager.dart';
-//import 'package:news1/model/SourcesRespone.dart';
 import 'package:news_app/APIs/APImanager.dart';
 import 'package:news_app/model/SourcesRespone.dart';
 

@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
 import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/model/Source.dart';
-//import 'package:news1/APIs/APImanager.dart';
-//import 'package:news1/model/NewsResponse.dart';
-//import 'package:news1/model/Source.dart';
+
 
 import 'NewsListItem.dart';
 
@@ -22,7 +20,6 @@ class _NewsFragmentState extends State<NewsFragment> {
    late Future <NewsResponse> newsFuture;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     newsFuture=loadNews(widget.source);
   }

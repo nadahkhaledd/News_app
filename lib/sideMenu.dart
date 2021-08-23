@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-//port 'package:news1/myThemeData.dart';
 import 'package:news_app/myThemeData.dart';
 import 'Settings.dart';
 import 'home/newsCategoriesScreen.dart';

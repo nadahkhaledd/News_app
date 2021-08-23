@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:news1/HomeScreen/homeScreen.dart';
 import 'package:news_app/HomeScreen/homeScreen.dart';
 
 class item extends StatelessWidget {
