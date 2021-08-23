@@ -17,7 +17,18 @@ Future<SourcesResponse> getNewsSources() async {
     throw Exception(response.body);
   }
 }
-
+Future <NewsResponse>loadNewsAfterSearch(String search) async {
+  final uri = Uri.https("newsapi.org", "/v2/everything",
+      {"apiKey": "1947b8bf5ffd45ef81c6aea209c2cd4e", "q":search}
+  );
+  final response = await http.get(uri);
+  if (response.statusCode == 200) {
+    return NewsResponse.fromJsonMap(jsonDecode(response.body));
+  }
+  else {
+    throw Exception(response.body);
+  }
+}
 Future <NewsResponse>loadNews(Source source) async {
   final uri = Uri.https("newsapi.org", "/v2/everything",
       {"apiKey": "1947b8bf5ffd45ef81c6aea209c2cd4e", "sources": source.id}
