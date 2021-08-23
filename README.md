@@ -14,6 +14,8 @@ The app allows an android or an IOS user to :
 
 3- Use the settings to change the appearing language through page "Settings"
 
+4- Search for a certain type of news based on an entered keyword "searchBar"
+
 The app allows the user to navigate between the pages upon clicking on the 'categories' in the side menu to go to the news categories screen , then going to the chosen news upon clicking on the wanted news category , also changing the appearing language through settings (not yet implemented).
 
 
