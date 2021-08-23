@@ -52,15 +52,24 @@
 }*/
 
 import 'package:flutter/material.dart';
+import 'package:news_app/HomeScreen/newspage.dart';
 import 'package:news_app/model/NewsItem.dart';
 
-InkWell newsListItem(NewsItem newsItem)
+InkWell newsListItem(NewsItem newsItem,context)
 {
   return InkWell(
-      onTap: (){},
+
+      onTap: (){
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NewsPage(newsItem)),);
+        //print("hi");
+
+      },
       child: Container(
         padding: EdgeInsets.all(12),
         child: Column(
+
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             ClipRRect(

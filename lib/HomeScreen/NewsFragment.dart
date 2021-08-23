@@ -33,7 +33,7 @@ class _NewsFragmentState extends State<NewsFragment> {
           {
             return ListView.builder(
               itemBuilder: (context,index){
-                return newsListItem(snapshot.data!.articles[index]);
+                return newsListItem(snapshot.data!.articles[index],context);
               },
               itemCount: snapshot.data!.articles.length,
 
@@ -56,7 +56,7 @@ class _NewsFragmentState extends State<NewsFragment> {
           }
           else{
             return Center(
-                child:CircularProgressIndicator(color: Theme.of(context).primaryColor)
+                child:CircularProgressIndicator(backgroundColor: Theme.of(context).primaryColor)
             );
           }
         },
