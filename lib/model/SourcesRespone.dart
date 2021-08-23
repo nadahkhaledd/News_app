@@ -11,6 +11,10 @@ class SourcesResponse {
     List<Source> sources = list.map((d) => Source.fromJson(d)).toList();
     return SourcesResponse(status: map['status'], sources: sources);
   }
+
+   /*SourcesResponse.fromJson(Map<String, dynamic> map):
+         status = map["status"],
+         sources = List<Source>.from(map["sources"].map((d) => Source.fromJson(d)));*/
 }
 
 

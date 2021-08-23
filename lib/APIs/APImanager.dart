@@ -8,7 +8,7 @@ import 'package:news_app/model/SourcesRespone.dart';
 //6da3e5226af44ee7a924341c0229ddf0
 Future<SourcesResponse> getNewsSources() async {
   final uri = Uri.https("newsapi.org", "/v2/top-headlines/sources",
-      {"apiKey": "1947b8bf5ffd45ef81c6aea209c2cd4e"});
+      {"apiKey": "6da3e5226af44ee7a924341c0229ddf0"});
   final response = await http.get(uri);
   print(response.body);
   if (response.statusCode == 200) {
@@ -20,11 +20,11 @@ Future<SourcesResponse> getNewsSources() async {
 
 Future <NewsResponse>loadNews(Source source) async {
   final uri = Uri.https("newsapi.org", "/v2/everything",
-      {"apiKey": "1947b8bf5ffd45ef81c6aea209c2cd4e", "sources": source.id}
+      {"apiKey": "6da3e5226af44ee7a924341c0229ddf0", "sources": source.id}
   );
   final response = await http.get(uri);
   if (response.statusCode == 200) {
-    return NewsResponse.fromJsonMap(jsonDecode(response.body));
+    return NewsResponse.fromJson(jsonDecode(response.body));
   }
   else {
     throw Exception(response.body);

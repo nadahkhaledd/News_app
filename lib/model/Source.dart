@@ -14,7 +14,9 @@ class Source {
          required this.url,
          required this.category,
          required this.language,
-         required this.country});
+         required this.country
+      }
+      );
 
   factory Source.fromJson(Map<String, dynamic> map) {
     return Source(
@@ -27,4 +29,13 @@ class Source {
       country: map['country'],
     );
   }
+
+  /*Source.fromJson(Map<String, dynamic> map):
+        id = map["id"],
+        name = map["name"],
+        description = map["description"],
+        url = map["url"],
+        category = map["category"],
+        language = map["language"],
+        country = map["country"];*/
 }

@@ -1,9 +1,10 @@
+import 'NewsResponse.dart';
 import 'Source.dart';
 
 class NewsItem {
 
-  Source source;
-  Object author;
+  SourceMini source;
+  String author;
   String title;
   String description;
   String url;
@@ -12,7 +13,7 @@ class NewsItem {
   String content;
 
   NewsItem.fromJsonMap(Map<String, dynamic> map):
-        source = Source.fromJson(map["source"]),
+        source = SourceMini.fromJson(map["source"]),
         author = map["author"],
         title = map["title"],
         description = map["description"],

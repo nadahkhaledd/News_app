@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
 import 'package:news_app/model/SourcesRespone.dart';
@@ -16,7 +17,6 @@ class _homeScreenState extends State<homeScreen> {
    late Future<SourcesResponse> newsFuture;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     newsFuture = getNewsSources();
   }
@@ -26,6 +26,7 @@ class _homeScreenState extends State<homeScreen> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70.0,
+        centerTitle: true,
         title: Center(
           child: Text(
             'Home',
