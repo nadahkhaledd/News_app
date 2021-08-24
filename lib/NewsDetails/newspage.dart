@@ -14,7 +14,7 @@ class NewsPage extends StatelessWidget {
         centerTitle: true,
         title: Center(
           child: Text(
-            'News title',
+            newsItem.title,
             style: TextStyle(fontSize: 19.0, fontWeight: FontWeight.w400),
             //  textAlign: TextAlign.right,
           ),
@@ -33,7 +33,7 @@ class NewsPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
                   newsItem.urlToImage,
-                  height: 240,
+                  height: 200,
                   fit: BoxFit.fill,
                 )),
           ),

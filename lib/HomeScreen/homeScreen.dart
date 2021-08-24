@@ -77,7 +77,7 @@ class _homeScreenState extends State<homeScreen> {
               );
               // assignment reload
             }
-            return Center(child: CircularProgressIndicator( backgroundColor: Theme.of(context).primaryColor,));
+            return Center(child: CircularProgressIndicator( color: Theme.of(context).primaryColor,));
           },
         ),
       ),

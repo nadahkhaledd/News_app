@@ -6,7 +6,7 @@ import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/model/Source.dart';
 
 
-import 'NewsListItem.dart';
+import '../NewsDetails/NewsListItem.dart';
 
 class NewsFragment extends StatefulWidget {
   Source source;
@@ -56,7 +56,7 @@ class _NewsFragmentState extends State<NewsFragment> {
           }
           else{
             return Center(
-                child:CircularProgressIndicator(backgroundColor: Theme.of(context).primaryColor)
+                child:CircularProgressIndicator(color: Theme.of(context).primaryColor)
             );
           }
         },

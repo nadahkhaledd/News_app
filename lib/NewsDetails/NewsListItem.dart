@@ -52,7 +52,7 @@
 }*/
 
 import 'package:flutter/material.dart';
-import 'package:news_app/HomeScreen/newspage.dart';
+import 'package:news_app/NewsDetails/newspage.dart';
 import 'package:news_app/model/NewsItem.dart';
 
 InkWell newsListItem(NewsItem newsItem,context)
