@@ -69,7 +69,7 @@ class _homeScreenState extends State<homeScreen> {
 
           ),
         ):
-        title: Center(
+         Center(
           child: Text(
             widget.chosenCategory,
             style: TextStyle(

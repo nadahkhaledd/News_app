@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/HomeScreen/SearchFragment.dart';
 import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/model/Source.dart' ;
-import 'NewsFragment.dart';
+import 'package:news_app/NewsDetails/NewsFragment.dart';
 import 'TabItem.dart';
 
 class AtSearchingHome extends StatefulWidget {

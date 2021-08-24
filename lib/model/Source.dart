@@ -9,12 +9,12 @@ class Source {
 
   Source(
       { required this.id,
-         required this.name,
-         required this.description,
-         required this.url,
-         required this.category,
-         required this.language,
-         required this.country
+        required this.name,
+        required this.description,
+        required this.url,
+        required this.category,
+        required this.language,
+        required this.country
       }
       );
 
@@ -30,3 +30,12 @@ class Source {
     );
   }
 
+/*Source.fromJson(Map<String, dynamic> map):
+        id = map["id"],
+        name = map["name"],
+        description = map["description"],
+        url = map["url"],
+        category = map["category"],
+        language = map["language"],
+        country = map["country"];*/
+}
