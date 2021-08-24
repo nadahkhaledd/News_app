@@ -4,6 +4,7 @@ import '../sideMenu.dart';
 import 'item.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+
 class newsCategoriesScreen extends StatefulWidget {
   static const routeName = 'newsCategoriesScreen';
   @override
@@ -107,12 +108,16 @@ class _newsCategoriesScreenState extends State<newsCategoriesScreen> {
                 ),
               ),
             ),
+
           ],
         ),
+
       ),
+
     );
   }
 }
+
 
 /* Container(
              child: Material(

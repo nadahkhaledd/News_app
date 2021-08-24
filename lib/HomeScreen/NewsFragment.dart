@@ -1,11 +1,9 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
 import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/model/Source.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../AppConfigProvider.dart';
 import 'NewsListItem.dart';
 
@@ -21,17 +19,17 @@ class NewsFragment extends StatefulWidget {
 
 class _NewsFragmentState extends State<NewsFragment> {
   late Future<NewsResponse> newsFuture;
-  late AppConfigProvider provider =
-      Provider.of<AppConfigProvider>(context, listen: false);
-
-  @override
-  void initState() {
-    super.initState();
-    newsFuture = loadNews(widget.source, provider.currentLocale);
-  }
+  late AppConfigProvider provider;
 
   @override
   Widget build(BuildContext context) {
+
+    setState(() {
+      provider = Provider.of<AppConfigProvider>(context);
+      newsFuture = loadNews(widget.source, provider.currentLocale);
+
+    });
+    //provider = Provider.of<AppConfigProvider>(context);
     return Container(
       child: FutureBuilder<NewsResponse>(
         future: newsFuture,
