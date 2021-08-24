@@ -1,4 +1,4 @@
-![Capture](https://user-images.githubusercontent.com/50349835/130674138-ac00f613-5113-4feb-861e-e468fa692265.JPG)
+
 # news_app
 
 A new Flutter project.
