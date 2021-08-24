@@ -17,8 +17,8 @@ import 'NewsListItem.dart';
 
 class SearchResult extends StatefulWidget {
   Source source;
-  String search;
-  SearchResult(this.source,this.search);
+  String Keyword;
+  SearchResult(this.source,this.Keyword);
 
   @override
   _SearchResultState createState() => _SearchResultState();
@@ -28,18 +28,20 @@ class _SearchResultState extends State<SearchResult> {
   late Future <NewsResponse> newsFuture;
 
   @override
-  void initState() {
-    super.initState();
-    newsFuture=loadNewsAfterSearch(widget.search);
-  }
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: FutureBuilder<NewsResponse>(
-        future: newsFuture,
+        future: newsFuture=loadNewsAfterSearch(widget.Keyword,widget.source),
         builder: (BuildContext,snapshot){
           if(snapshot.hasData)
           {
+            //print("widget.search");
             return ListView.builder(
               itemBuilder: (context,index){
                 print(snapshot.data!.articles[index]);
@@ -58,7 +60,7 @@ class _SearchResultState extends State<SearchResult> {
                 onPressed:() {
                   setState(() {
 
-                    newsFuture=loadNewsAfterSearch(widget.search);
+                    newsFuture=loadNewsAfterSearch(widget.Keyword,widget.source);
 
 
                   });

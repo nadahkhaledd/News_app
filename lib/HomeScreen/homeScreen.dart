@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
-import 'package:news_app/HomeScreen/AtSearchingHome.dart';
+import 'package:news_app/HomeScreen/SearchResultHome.dart';
 import 'package:news_app/model/SourcesRespone.dart';
 
 import '../sideMenu.dart';
@@ -21,6 +21,8 @@ class _homeScreenState extends State<homeScreen> {
     super.initState();
     newsFuture = getNewsSources();
   }
+  String keyword="";
+  bool check=false;
   bool searching=false;
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,27 @@ class _homeScreenState extends State<homeScreen> {
         ],
         toolbarHeight: 70.0,
         centerTitle: true,
-        title: Center(
+        title:searching==true?
+        Container(
+          height: 40,
+          child: TextField(
+            onSubmitted: (String value) async {
+              setState(() {
+                keyword=value;
+                check=true;
+              });
+
+            },
+            decoration: InputDecoration(
+                filled: true,
+                fillColor:Colors.white,
+                enabledBorder: OutlineInputBorder(borderSide: BorderSide( color: Colors.white),borderRadius: BorderRadius.all(Radius.circular(20)))
+               , focusedBorder: OutlineInputBorder(borderSide: BorderSide( color: Colors.white),borderRadius: BorderRadius.all(Radius.circular(20)))
+        ),
+
+          ),
+        ):
+        Center(
           child: Text(
             'Home',
             style: TextStyle(
@@ -66,7 +88,7 @@ class _homeScreenState extends State<homeScreen> {
 
       drawer: sideMenu(),
 
-      body: searching==false?
+      body: searching==false ?
       Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -113,7 +135,8 @@ class _homeScreenState extends State<homeScreen> {
               builder: (builContext, snapShot) {
                 if (snapShot.hasData) {
                   //print(snapShot.data!.sources);
-                  return AtSearchingHome(snapShot.data!.sources);
+
+                  return AtSearchingHome(snapShot.data!.sources,check,keyword);
                 } else if (snapShot.hasError) {
                   print(snapShot.error);
                   return Center(
@@ -134,6 +157,7 @@ class _homeScreenState extends State<homeScreen> {
                 return Center(child: CircularProgressIndicator( color: Theme.of(context).primaryColor,));
               },
             ),
+
           )
     );
   }
