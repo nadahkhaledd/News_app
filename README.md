@@ -1,3 +1,4 @@
+![Capture](https://user-images.githubusercontent.com/50349835/130674138-ac00f613-5113-4feb-861e-e468fa692265.JPG)
 # news_app
 
 A new Flutter project.
@@ -31,9 +32,7 @@ Run the main.dart file
 
 Screenshots of the app:
 
-
-
-![news_splash](https://user-images.githubusercontent.com/66536961/130468424-0c49574a-2bc2-4744-b989-c962a5a1ca4e.jpeg)
+![Splash Screen](https://user-images.githubusercontent.com/50349835/130674304-d92f4a0d-683c-4d48-a0d2-c64ae531fe96.JPG)
 
 
 ![news_categories](https://user-images.githubusercontent.com/66536961/130468671-c1d85bc0-f592-4b1f-a288-96e7e6385868.jpeg)
