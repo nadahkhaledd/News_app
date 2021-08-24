@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/home/newsCategoriesScreen.dart';
+//import 'package:news1/myThemeData.dart';
 import 'package:news_app/myThemeData.dart';
+import 'home/newsCategoriesScreen.dart';
 void main() {
   runApp(MyApp());
 }

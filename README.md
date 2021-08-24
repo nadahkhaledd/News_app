@@ -34,7 +34,6 @@ Screenshots of the app:
 
 ![Splash Screen](https://user-images.githubusercontent.com/50349835/130674304-d92f4a0d-683c-4d48-a0d2-c64ae531fe96.JPG)
 
-
 ![news_categories](https://user-images.githubusercontent.com/66536961/130468671-c1d85bc0-f592-4b1f-a288-96e7e6385868.jpeg)
 
 

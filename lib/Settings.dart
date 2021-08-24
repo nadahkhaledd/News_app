@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/myThemeData.dart';
 import 'package:news_app/sideMenu.dart';
+import 'package:news_app/myThemeData.dart';
 
 class Settings extends StatefulWidget {
 
@@ -12,7 +12,7 @@ class _SettingsState extends State<Settings> {
 
   List<String> languages = ['English', 'العربية'];
 
-   late  String language = 'English';
+     String language = 'English';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,12 +59,17 @@ class _SettingsState extends State<Settings> {
                  left: 20
                ),
                child: DropdownButton(
+                 style: TextStyle(color: myThemeData.primaryColor),
+                 focusColor: myThemeData.primaryColor,
+                 //dropdownColor: myThemeData.primaryColor,
+                 iconDisabledColor: myThemeData.primaryColor,
+                 iconEnabledColor: myThemeData.primaryColor,
                  isExpanded: true,
                   value: language,
                     items: languages.map((String language) {
                       return DropdownMenuItem<String>(
                         value: language,
-                        child: Text(language , style: TextStyle(color: myThemeData.TextColor),),
+                        child: Text(language , style: TextStyle(color: myThemeData.primaryColor),),
                         onTap: null,
                       );
                     }).toList(),

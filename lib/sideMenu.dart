@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/Settings.dart';
-import 'package:news_app/home/newsCategoriesScreen.dart' as categoriesScreen;
 import 'package:news_app/myThemeData.dart';
+import 'Settings.dart';
+import 'home/newsCategoriesScreen.dart';
 
 class sideMenu extends Drawer {
 
@@ -31,7 +31,7 @@ class sideMenu extends Drawer {
                 padding: const EdgeInsets.all(10.0),
                 child: InkWell(
                   onTap: ()
-                  { Navigator.push(context, MaterialPageRoute(builder: (context) => categoriesScreen.newsCategoriesScreen()));},
+                  { Navigator.push(context, MaterialPageRoute(builder: (context) => newsCategoriesScreen()));},
                   child: Row(
                     children: [
                       Padding(
