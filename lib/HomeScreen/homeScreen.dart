@@ -31,7 +31,7 @@ class _homeScreenState extends State<homeScreen> {
         centerTitle: true,
         title: Center(
           child: Text(
-            'Home',
+            widget.chosenCategory,
             style: TextStyle(
                 fontSize: 19.0,
                 fontWeight: FontWeight.w400
