@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/model/Source.dart' ;
-import 'NewsFragment.dart';
+import '../NewsDetails/NewsFragment.dart';
 import 'TabItem.dart';
 
 class HomeTabs extends StatefulWidget {
