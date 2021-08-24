@@ -9,7 +9,8 @@ import 'package:news_app/model/SourcesRespone.dart';
 //f024fa4349204675b01db633fb5c5f6b
 Future<SourcesResponse> getNewsSources() async {
   final uri = Uri.https("newsapi.org", "/v2/top-headlines/sources",
-      {"apiKey": "f024fa4349204675b01db633fb5c5f6b"});
+
+  {"apiKey": "f024fa4349204675b01db633fb5c5f6b"});
   final response = await http.get(uri);
   print(response.body);
   if (response.statusCode == 200) {
@@ -18,6 +19,19 @@ Future<SourcesResponse> getNewsSources() async {
     throw Exception(response.body);
   }
 }
+Future <NewsResponse>loadNewsAfterSearch(String search ,Source source) async {
+  final uri = Uri.https("newsapi.org", "/v2/everything",
+      {"apiKey": "6da3e5226af44ee7a924341c0229ddf0","sources": source.id,"q":search}
+  );
+  final response = await http.get(uri);
+  if (response.statusCode == 200) {
+    return NewsResponse.fromJson(jsonDecode(response.body));
+  }
+  else {
+    throw Exception(response.body);
+  }
+}
+
 
 
 
@@ -39,6 +53,7 @@ Future<SourcesResponse> getCategorizedNewsSources(String category) async {
 Future <NewsResponse>loadNews(Source source) async {
   final uri = Uri.https("newsapi.org", "/v2/everything",
       {"apiKey": "f024fa4349204675b01db633fb5c5f6b", "sources": source.id}
+
   );
   final response = await http.get(uri);
   if (response.statusCode == 200) {
