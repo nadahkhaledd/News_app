@@ -8,11 +8,11 @@ class NewsResponse {
 
   NewsResponse(this.status, this.totalResults, this.articles);
 
-  factory NewsResponse.fromJson(Map<String, dynamic> map){
-    String status = map["status"];
-    int totalResults = map["totalResults"];
-    List<NewsItem> articles = List<NewsItem>.from(map["articles"].map((it) => NewsItem.fromJsonMap(it)));
-    return NewsResponse(status, totalResults, articles);
+   factory NewsResponse.fromJson(Map<String, dynamic> map){
+     String status = map["status"];
+     int totalResults = map["totalResults"];
+     List<NewsItem> articles = List<NewsItem>.from(map["articles"].map((it) => NewsItem.fromJsonMap(it)));
+     return NewsResponse(status, totalResults, articles);
   }
 }
 

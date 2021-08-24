@@ -11,7 +11,7 @@ class item extends StatelessWidget {
   Widget build(BuildContext context) {
     return  InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => homeScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => homeScreen(title)));
       },
       child:  Container(
           decoration: BoxDecoration(

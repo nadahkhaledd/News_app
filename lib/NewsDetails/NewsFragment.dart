@@ -6,7 +6,7 @@ import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/model/Source.dart';
 
 
-import 'NewsListItem.dart';
+import '../NewsDetails/NewsListItem.dart';
 
 class NewsFragment extends StatefulWidget {
   Source source;
@@ -33,13 +33,14 @@ class _NewsFragmentState extends State<NewsFragment> {
           {
             return ListView.builder(
               itemBuilder: (context,index){
-                return newsListItem(snapshot.data!.articles[index]);
+                return newsListItem(snapshot.data!.articles[index],context);
               },
               itemCount: snapshot.data!.articles.length,
 
             );
           }
           else if(snapshot.hasError){
+            print(snapshot.error);
             return Center(
               child: ElevatedButton(
                 style: ButtonStyle(
