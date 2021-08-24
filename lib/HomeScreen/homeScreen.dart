@@ -7,6 +7,8 @@ import '../sideMenu.dart';
 import 'HomeTabs.dart';
 
 class homeScreen extends StatefulWidget {
+  String chosenCategory;
+  homeScreen(this.chosenCategory);
 
   @override
   _homeScreenState createState() => _homeScreenState();
@@ -18,7 +20,7 @@ class _homeScreenState extends State<homeScreen> {
   @override
   void initState() {
     super.initState();
-    newsFuture = getNewsSources();
+    newsFuture = getCategorizedNewsSources(widget.chosenCategory);
   }
 
   @override

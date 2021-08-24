@@ -19,6 +19,23 @@ Future<SourcesResponse> getNewsSources() async {
   }
 }
 
+
+
+
+Future<SourcesResponse> getCategorizedNewsSources(String category) async {
+  final uri = Uri.https("newsapi.org", "/v2/top-headlines/sources",
+      {"category":category,"apiKey": "f024fa4349204675b01db633fb5c5f6b"});
+  final response = await http.get(uri);
+  print(response.body);
+  if (response.statusCode == 200) {
+    return SourcesResponse.fromJson(jsonDecode(response.body));
+  } else {
+    throw Exception(response.body);
+  }
+}
+
+
+
 Future <NewsResponse>loadNews(Source source) async {
   final uri = Uri.https("newsapi.org", "/v2/everything",
       {"apiKey": "f024fa4349204675b01db633fb5c5f6b", "sources": source.id}

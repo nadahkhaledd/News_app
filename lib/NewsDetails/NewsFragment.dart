@@ -40,6 +40,7 @@ class _NewsFragmentState extends State<NewsFragment> {
             );
           }
           else if(snapshot.hasError){
+            print(snapshot.error);
             return Center(
               child: ElevatedButton(
                 style: ButtonStyle(
