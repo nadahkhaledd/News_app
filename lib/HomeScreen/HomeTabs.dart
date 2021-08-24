@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/model/NewsResponse.dart';
-import 'package:news_app/model/Source.dart' ;
+import 'package:news_app/model/Source.dart';
 import 'NewsFragment.dart';
 import 'TabItem.dart';
 
@@ -34,14 +34,13 @@ class _HomeTabsState extends State<HomeTabs> {
                   isScrollable: true,
                   tabs: widget.sources
                       .map((source) => TabItem(source,
-                      widget.sources.indexOf(source) == selectedIndex))
+                          widget.sources.indexOf(source) == selectedIndex))
                       .toList()),
-
               Expanded(
                 child: TabBarView(
-                  children:
-                  widget.sources.map((source) => NewsFragment(source)).toList(),
-
+                  children: widget.sources
+                      .map((source) => NewsFragment(source))
+                      .toList(),
                 ),
               ),
             ],

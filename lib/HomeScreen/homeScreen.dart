@@ -2,19 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
 import 'package:news_app/model/SourcesRespone.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../sideMenu.dart';
 import 'HomeTabs.dart';
 
 class homeScreen extends StatefulWidget {
-
   @override
   _homeScreenState createState() => _homeScreenState();
 }
 
 class _homeScreenState extends State<homeScreen> {
-
-   late Future<SourcesResponse> newsFuture;
+  late Future<SourcesResponse> newsFuture;
   @override
   void initState() {
     super.initState();
@@ -29,11 +28,8 @@ class _homeScreenState extends State<homeScreen> {
         centerTitle: true,
         title: Center(
           child: Text(
-            'Home',
-            style: TextStyle(
-                fontSize: 19.0,
-                fontWeight: FontWeight.w400
-            ),
+            AppLocalizations.of(context)!.home,
+            style: TextStyle(fontSize: 19.0, fontWeight: FontWeight.w400),
             //  textAlign: TextAlign.right,
           ),
         ),
@@ -41,13 +37,9 @@ class _homeScreenState extends State<homeScreen> {
         shape: ContinuousRectangleBorder(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(75),
-                bottomRight: Radius.circular(75)
-            )
-        ),
+                bottomRight: Radius.circular(75))),
       ),
-
       drawer: sideMenu(),
-
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -65,19 +57,23 @@ class _homeScreenState extends State<homeScreen> {
               return Center(
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Theme.of(context).primaryColor),
                   ),
-                  onPressed:() {
+                  onPressed: () {
                     setState(() {
                       newsFuture = getNewsSources();
                     });
                   },
-                  child: Text('Reload'),
+                  child: Text(AppLocalizations.of(context)!.reload),
                 ),
               );
               // assignment reload
             }
-            return Center(child: CircularProgressIndicator( color: Theme.of(context).primaryColor,));
+            return Center(
+                child: CircularProgressIndicator(
+              backgroundColor: Theme.of(context).primaryColor,
+            ));
           },
         ),
       ),

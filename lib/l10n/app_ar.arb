@@ -1,0 +1,17 @@
+{
+  "appTitle": "تطبيق الأخبار",
+  "home": "الرئيسية",
+  "settings": "الإعدادات",
+  "categories" : "الفئات",
+  "reload": "إعادة التحميل",
+  "lang": "اللغة",
+  "pick": "اختر الفئة المناسبة",
+  "sports": "الرياضة",
+  "politics": "السياسة",
+  "health": "الصحة",
+  "business": "الأعمال",
+  "science": "العلوم",
+  "environment": "البيئة",
+  "newsTitle": "عنوان الخبر ",
+  "search": "بحث"
+}
