@@ -16,8 +16,7 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-
-   late Future<SourcesResponse> newsFuture;
+  late Future<SourcesResponse> newsFuture;
   @override
   void initState() {
     super.initState();
@@ -41,13 +40,9 @@ class _homeScreenState extends State<homeScreen> {
         shape: ContinuousRectangleBorder(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(75),
-                bottomRight: Radius.circular(75)
-            )
-        ),
+                bottomRight: Radius.circular(75))),
       ),
-
       drawer: sideMenu(),
-
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -65,9 +60,10 @@ class _homeScreenState extends State<homeScreen> {
               return Center(
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Theme.of(context).primaryColor),
                   ),
-                  onPressed:() {
+                  onPressed: () {
                     setState(() {
                       newsFuture = getNewsSources();
                     });
@@ -77,7 +73,10 @@ class _homeScreenState extends State<homeScreen> {
               );
               // assignment reload
             }
-            return Center(child: CircularProgressIndicator( color: Theme.of(context).primaryColor,));
+            return Center(
+                child: CircularProgressIndicator(
+              backgroundColor: Theme.of(context).primaryColor,
+            ));
           },
         ),
       ),
