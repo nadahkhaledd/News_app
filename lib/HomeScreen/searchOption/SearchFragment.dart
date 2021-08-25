@@ -32,8 +32,6 @@ class _SearchResultState extends State<SearchResult> {
             //print("widget.search");
             return ListView.builder(
               itemBuilder: (context,index){
-
-                print(snapshot.data!.articles[index]);
                 return newsListItem(snapshot.data!.articles[index],context);
               },
               itemCount: snapshot.data!.articles.length,
@@ -48,7 +46,7 @@ class _SearchResultState extends State<SearchResult> {
                 ),
                 onPressed:() {
                   setState(() {
-                    print(widget.Keyword);
+
                     newsFuture=loadNewsAfterSearch(widget.Keyword,widget.source);
 
 

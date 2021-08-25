@@ -21,13 +21,14 @@ Future<SourcesResponse> getNewsSources() async {
 }
 Future <NewsResponse>loadNewsAfterSearch(String search ,Source source) async {
   final uri = Uri.https("newsapi.org", "/v2/everything",
-      {"apiKey": "6955c58e283c43aa954b2e757a049ca8","sources": source.id,"q":search}
+      {"apiKey": "6955c58e283c43aa954b2e757a049ca8","q":search}
   );
   final response = await http.get(uri);
   if (response.statusCode == 200) {
     return NewsResponse.fromJson(jsonDecode(response.body));
   }
   else {
+
     throw Exception(response.body);
   }
 }

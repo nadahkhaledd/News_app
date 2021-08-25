@@ -18,8 +18,8 @@ class NewsResponse {
 
 
 class SourceMini {
-  String id;
-  String name;
+  String? id;
+  String? name;
 
   SourceMini(
       { required this.id,
