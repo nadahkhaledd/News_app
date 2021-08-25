@@ -44,9 +44,9 @@ Future<SourcesResponse> getCategorizedNewsSources(String category) async {
   }
 }
 
-Future <NewsResponse>loadNews(Source source) async {
+Future <NewsResponse>loadNews(Source source, String language) async {
   final uri = Uri.https("newsapi.org", "/v2/everything",
-      {"apiKey": "6955c58e283c43aa954b2e757a049ca8", "sources": source.id}
+      {"apiKey": "6da3e5226af44ee7a924341c0229ddf0", "sources": source.id, "language": language}
   );
   final response = await http.get(uri);
   if (response.statusCode == 200) {

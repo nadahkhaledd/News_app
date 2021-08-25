@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
 import 'package:news_app/HomeScreen/searchOption/SearchResultHome.dart';
 import 'package:news_app/model/SourcesRespone.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../tools/sideMenu.dart';
 import 'HomeTabs.dart';
@@ -17,15 +18,13 @@ class homeScreen extends StatefulWidget {
 
 class _homeScreenState extends State<homeScreen> {
 
-  late Future<SourcesResponse> newsFuture;
+   late Future<SourcesResponse> newsFuture;
   @override
   void initState() {
     super.initState();
     newsFuture = getCategorizedNewsSources(widget.chosenCategory);
   }
-  String keyword="";
-  bool check=false;
-  bool searching=false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,7 +101,6 @@ class _homeScreenState extends State<homeScreen> {
           future: newsFuture,
           builder: (builContext, snapShot) {
             if (snapShot.hasData) {
-             // print(snapShot.data!.sources);
               return HomeTabs(snapShot.data!.sources);
             } else if (snapShot.hasError) {
               print(snapShot.error);
@@ -116,7 +114,7 @@ class _homeScreenState extends State<homeScreen> {
                       newsFuture = getNewsSources();
                     });
                   },
-                  child: Text('Reload'),
+                  child: Text(AppLocalizations.of(context)!.reload),
                 ),
               );
               // assignment reload

@@ -1,0 +1,19 @@
+{
+"appTitle": "News App",
+  "home": "Home",
+  "settings": "Settings",
+  "categories" : "Categories",
+  "reload": "Reload",
+  "lang": "Language",
+  "pick": "Pick your category of interest",
+  "sports": "Sports",
+  "politics": "Politics",
+  "health": "Health",
+  "business": "Business",
+  "science": "Science",
+  "environment": "Environment",
+  "newsTitle": "News Title",
+  "search": "Search"
+
+
+}
