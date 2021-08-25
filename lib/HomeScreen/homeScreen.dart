@@ -17,7 +17,8 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  late Future<SourcesResponse> newsFuture;
+
+   late Future<SourcesResponse> newsFuture;
   @override
   void initState() {
     super.initState();
