@@ -76,7 +76,7 @@ InkWell newsListItem(NewsItem newsItem,context)
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
 
-                  newsItem.urlToImage,
+                  newsItem.urlToImage??" ",
                   height: 240,
                   fit: BoxFit.cover,
                 )),
@@ -93,7 +93,7 @@ InkWell newsListItem(NewsItem newsItem,context)
               height: 8.0,
             ),
             Text(
-              newsItem.title,
+              newsItem.title??" ",
               textAlign: TextAlign.start,
               style:
               TextStyle(fontWeight: FontWeight.w700, color: Colors.black87),
@@ -102,7 +102,7 @@ InkWell newsListItem(NewsItem newsItem,context)
               height: 10.0,
             ),
             Text(
-              newsItem.publishedAt,
+              newsItem.publishedAt?? " ",
               textAlign: TextAlign.end,
               style:
               TextStyle(fontWeight: FontWeight.w500, color: Colors.black45),
