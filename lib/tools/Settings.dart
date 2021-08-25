@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/sideMenu.dart';
-import 'package:news_app/myThemeData.dart';
+import 'package:news_app/tools/sideMenu.dart';
+import 'package:news_app/tools/myThemeData.dart';
 
 class Settings extends StatefulWidget {
 

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
-import 'package:news_app/HomeScreen/SearchResultHome.dart';
+import 'package:news_app/HomeScreen/searchOption/SearchResultHome.dart';
 import 'package:news_app/model/SourcesRespone.dart';
 
-import '../sideMenu.dart';
+import '../tools/sideMenu.dart';
 import 'HomeTabs.dart';
 
 class homeScreen extends StatefulWidget {

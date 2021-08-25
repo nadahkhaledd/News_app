@@ -1,7 +1,4 @@
-
-
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
 import 'package:news_app/model/NewsResponse.dart';
@@ -11,8 +8,6 @@ import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/model/Source.dart';
 import 'package:news_app/model/SourcesRespone.dart';
 import 'SelectedSource.dart';
-
-
 
 import 'package:news_app/NewsDetails/NewsListItem.dart';
 
@@ -27,13 +22,6 @@ class SearchResult extends StatefulWidget {
 class _SearchResultState extends State<SearchResult> {
 
   late Future <NewsResponse> newsFuture;
-
-  @override
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -63,8 +51,6 @@ class _SearchResultState extends State<SearchResult> {
                   setState(() {
                     print(widget.Keyword);
                     newsFuture=loadNewsAfterSearch(widget.Keyword,widget.source);
-
-
                   });
                 },
                 child: Text('Reload'),

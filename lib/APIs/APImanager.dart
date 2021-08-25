@@ -10,8 +10,7 @@ import 'package:news_app/model/SourcesRespone.dart';
 //6955c58e283c43aa954b2e757a049ca8
 Future<SourcesResponse> getNewsSources() async {
   final uri = Uri.https("newsapi.org", "/v2/top-headlines/sources",
-
-  {"apiKey": "6955c58e283c43aa954b2e757a049ca8"});
+      {"apiKey": "6955c58e283c43aa954b2e757a049ca8"});
   final response = await http.get(uri);
   print(response.body);
   if (response.statusCode == 200) {
@@ -33,10 +32,6 @@ Future <NewsResponse>loadNewsAfterSearch(String search ,Source source) async {
   }
 }
 
-
-
-
-
 Future<SourcesResponse> getCategorizedNewsSources(String category) async {
   final uri = Uri.https("newsapi.org", "/v2/top-headlines/sources",
       {"category":category,"apiKey": "6955c58e283c43aa954b2e757a049ca8"});
@@ -49,12 +44,9 @@ Future<SourcesResponse> getCategorizedNewsSources(String category) async {
   }
 }
 
-
-
 Future <NewsResponse>loadNews(Source source) async {
   final uri = Uri.https("newsapi.org", "/v2/everything",
       {"apiKey": "6955c58e283c43aa954b2e757a049ca8", "sources": source.id}
-
   );
   final response = await http.get(uri);
   if (response.statusCode == 200) {

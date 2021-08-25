@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/model/Source.dart' ;
 import '../NewsDetails/NewsFragment.dart';
-import 'SearchFragment.dart';
+import 'searchOption/SearchFragment.dart';
 import 'TabItem.dart';
 
 class HomeTabs extends StatefulWidget {
