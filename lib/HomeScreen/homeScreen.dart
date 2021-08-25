@@ -25,6 +25,9 @@ class _homeScreenState extends State<homeScreen> {
     newsFuture = getCategorizedNewsSources(widget.chosenCategory);
   }
 
+   String keyword="";
+   bool check=false;
+   bool searching=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

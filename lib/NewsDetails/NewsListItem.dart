@@ -76,7 +76,7 @@ InkWell newsListItem(NewsItem newsItem,context)
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
 
-                  newsItem.urlToImage??" ",
+                  newsItem.urlToImage??" unable to load image  ",
                   height: 240,
                   fit: BoxFit.cover,
                 )),
@@ -84,7 +84,7 @@ InkWell newsListItem(NewsItem newsItem,context)
               height: 13.0,
             ),
             Text(
-              newsItem.author.toString(),
+              newsItem.author??" ",
               textAlign: TextAlign.start,
               style:
               TextStyle(fontWeight: FontWeight.w400, color: Colors.black45),

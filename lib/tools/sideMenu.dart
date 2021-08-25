@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/tools/myThemeData.dart';
 import '../Settings.dart';
 import '../home/newsCategoriesScreen.dart';
-import 'package:news_app/myThemeData.dart';
-import 'Settings.dart';
-import 'home/newsCategoriesScreen.dart';
+import 'myThemeData.dart';
+import '../Settings.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class sideMenu extends Drawer {
