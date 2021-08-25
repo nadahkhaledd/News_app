@@ -4,13 +4,13 @@ import 'Source.dart';
 class NewsItem {
 
   SourceMini source;
-  String author;
-  String title;
-  String description;
-  String url;
-  String urlToImage;
-  String publishedAt;
-  String content;
+  String? author;
+  String? title;
+  String? description;
+  String? url;
+  String? urlToImage;
+  String? publishedAt;
+  String? content;
 
   NewsItem.fromJsonMap(Map<String, dynamic> map):
         source = SourceMini.fromJson(map["source"]),
