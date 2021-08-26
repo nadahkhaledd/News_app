@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
 import 'package:news_app/model/NewsResponse.dart';
@@ -24,48 +22,43 @@ class _NewsFragmentState extends State<NewsFragment> {
 
   @override
   Widget build(BuildContext context) {
-
     setState(() {
       provider = Provider.of<AppConfigProvider>(context);
       newsFuture = loadNews(widget.source, provider.currentLocale);
-
     });
     //provider = Provider.of<AppConfigProvider>(context);
     return Container(
       child: FutureBuilder<NewsResponse>(
         future: newsFuture,
-        builder: (BuildContext,snapshot){
-          if(snapshot.hasData)
-          {
+        builder: (BuildContext, snapshot) {
+          if (snapshot.hasData) {
             return ListView.builder(
-              itemBuilder: (context,index){
-                return newsListItem(snapshot.data!.articles[index],context);
+              itemBuilder: (context, index) {
+                return newsListItem(snapshot.data!.articles[index], context);
               },
               itemCount: snapshot.data!.articles.length,
-
             );
-          }
-          else if(snapshot.hasError){
+          } else if (snapshot.hasError) {
             print(snapshot.error);
             return Center(
               child: ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                      Theme.of(context).primaryColor),
                 ),
-                onPressed:() {
+                onPressed: () {
                   setState(() {
                     newsFuture =
                         loadNews(widget.source, provider.currentLocale);
                   });
                 },
-                child: Text('Reload'),
+                child: Text(AppLocalizations.of(context)!.reload),
               ),
             );
-          }
-          else{
+          } else {
             return Center(
-                child:CircularProgressIndicator(color: Theme.of(context).primaryColor)
-            );
+                child: CircularProgressIndicator(
+                    backgroundColor: Theme.of(context).primaryColor));
           }
         },
       ),
