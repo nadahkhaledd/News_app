@@ -58,7 +58,7 @@ class _NewsFragmentState extends State<NewsFragment> {
           } else {
             return Center(
                 child: CircularProgressIndicator(
-                    backgroundColor: Theme.of(context).primaryColor));
+                    color: Theme.of(context).primaryColor));
           }
         },
       ),

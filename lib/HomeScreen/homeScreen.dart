@@ -1,22 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/APIs/APImanager.dart';
-import 'package:news_app/HomeScreen/searchOption/SearchResultHome.dart';
+import 'package:news_app/HomeScreen/HomePageWidget.dart';
+import 'package:news_app/Settings.dart';
+import 'package:news_app/SideMenu/SideMenuItem.dart';
+import 'package:news_app/home/item.dart';
+import 'package:news_app/home/newsCategoriesScreen.dart';
 import 'package:news_app/model/SourcesRespone.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../tools/sideMenu.dart';
-import 'HomeTabs.dart';
+import '../SideMenu/sideMenu.dart';
 
 class homeScreen extends StatefulWidget {
-  String chosenCategory;
-  homeScreen(this.chosenCategory);
+
+  static const routeName = 'homeScreen';
+  String chosenCategory = '';
 
   @override
   _homeScreenState createState() => _homeScreenState();
 }
 
 class _homeScreenState extends State<homeScreen> {
+  CategoryData? selectedCategory = null;
+  bool inSettings = false;
+  ///bool inNewsPage = false;
 
    late Future<SourcesResponse> newsFuture;
   @override
@@ -50,7 +56,20 @@ class _homeScreenState extends State<homeScreen> {
           ],
           toolbarHeight: 70.0,
           centerTitle: true,
-          title: searching == true
+          title:  inSettings? Center(
+            child: Text(
+              AppLocalizations.of(context)!.settings,
+              style: TextStyle(fontSize: 19.0, fontWeight: FontWeight.w700),
+              //  textAlign: TextAlign.right,
+            ),
+          ):
+          selectedCategory==null ? Center(
+            child: Text(
+              AppLocalizations.of(context)!.appTitle,
+              style: TextStyle(fontSize: 19.0, fontWeight: FontWeight.w700),
+              //  textAlign: TextAlign.right,
+            ),
+          ) : (searching == true
               ? Container(
                   height: 40,
                   child: TextField(
@@ -80,91 +99,42 @@ class _homeScreenState extends State<homeScreen> {
                         TextStyle(fontSize: 19.0, fontWeight: FontWeight.w400),
                     //  textAlign: TextAlign.right,
                   ),
-                ),
+                )),
           //backgroundColor: primaryColor,
           shape: ContinuousRectangleBorder(
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(75),
                   bottomRight: Radius.circular(75))),
         ),
-        drawer: sideMenu(),
-        body: searching == false
-            ? Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/pattern.png'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: FutureBuilder<SourcesResponse>(
-                  future: newsFuture,
-                  builder: (builContext, snapShot) {
-                    if (snapShot.hasData) {
-                      return HomeTabs(snapShot.data!.sources);
-                    } else if (snapShot.hasError) {
-                      print(snapShot.error);
-                      return Center(
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Theme.of(context).primaryColor),
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              newsFuture = getNewsSources();
-                            });
-                          },
-                          child: Text(AppLocalizations.of(context)!.reload),
-                        ),
-                      );
-                      // assignment reload
-                    }
-                    return Center(
-                        child: CircularProgressIndicator(
-                      backgroundColor: Theme.of(context).primaryColor,
-                    ));
-                  },
-                ),
-              )
-            : Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/pattern.png'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: FutureBuilder<SourcesResponse>(
-                  future: newsFuture,
-                  builder: (builContext, snapShot) {
-                    if (snapShot.hasData) {
-                      //print(snapShot.data!.sources);
+        drawer: sideMenu(this.onSideMenuItemClick),
+        body: (selectedCategory==null && !inSettings)? newsCategoriesScreen(this.onCategoryItemClick):(selectedCategory!=null && !inSettings)?
+        (searching == false
+            ? HomePageWidget(newsFuture: newsFuture, chosenCategory: widget.chosenCategory,)
+            : HomePageWidget(newsFuture: newsFuture, chosenCategory: widget.chosenCategory, inSearch: true, check: check, keyword: keyword)):(inSettings)?Settings():null
 
-                      return AtSearchingHome(
-                          snapShot.data!.sources, check, keyword);
-                    } else if (snapShot.hasError) {
-                      print(snapShot.error);
-                      return Center(
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Theme.of(context).primaryColor),
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              newsFuture = getNewsSources();
-                            });
-                          },
-                          child: Text(AppLocalizations.of(context)!.reload),
-                        ),
-                      );
-                      // assignment reload
-                    }
-                    return Center(
-                        child: CircularProgressIndicator(
-                      backgroundColor: Theme.of(context).primaryColor,
-                    ));
-                  },
-                ),
-              ));
+    );
+  }
+
+  void onCategoryItemClick(CategoryData category){
+    setState(() {
+      selectedCategory = category;
+      widget.chosenCategory = category.title;
+    });
+  }
+
+  void onSideMenuItemClick(SideMenuItem sideMenuItem){
+    if(sideMenuItem.id == SideMenuItem.CATEGORIES){
+      setState(() {
+        selectedCategory=null;
+        inSettings=false;
+      });
+    }else if (sideMenuItem.id == SideMenuItem.SETTINGS){
+      // to handle
+      setState(() {
+        inSettings=true;
+        selectedCategory=null;
+      });
+    }
+    Navigator.pop(context);
   }
 }
