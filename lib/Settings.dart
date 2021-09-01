@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/tools/sideMenu.dart';
+import 'package:news_app/SideMenu/sideMenu.dart';
 import 'package:news_app/tools/myThemeData.dart';
 import 'package:news_app/AppConfigProvider.dart';
-import 'tools/sideMenu.dart';
+import 'SideMenu/sideMenu.dart';
 import 'tools/myThemeData.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -22,26 +22,7 @@ class _SettingsState extends State<Settings> {
      String language = 'English';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 70.0,
-        title: Center(
-          child: Text(
-            AppLocalizations.of(context)!.settings,
-            style: TextStyle(fontSize: 19.0, fontWeight: FontWeight.w400),
-            //  textAlign: TextAlign.right,
-          ),
-        ),
-        //backgroundColor: primaryColor,
-        shape: ContinuousRectangleBorder(
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(50),
-                bottomRight: Radius.circular(50))),
-      ),
-
-      drawer: sideMenu(),
-
-      body: Container(
+    return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/pattern.png'),
@@ -95,8 +76,6 @@ class _SettingsState extends State<Settings> {
             ),
           ],
         ),
-      ),
-
-    );
+      );
   }
 }

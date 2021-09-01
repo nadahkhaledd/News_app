@@ -12,8 +12,6 @@ InkWell newsListItem(NewsItem newsItem,context)
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => NewsPage(newsItem)),);
-        );
-
       },
       child: Container(
         padding: EdgeInsets.all(9),

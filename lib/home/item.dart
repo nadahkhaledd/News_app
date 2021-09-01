@@ -5,20 +5,19 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class item extends StatelessWidget {
-  String imagePath = '';
-  String IconPath = '';
-  String title = '';
-  item(this.imagePath, this.IconPath, this.title);
+  CategoryData category;
+  Function onCategoryItemClick;
+  item(this.category, this.onCategoryItemClick);
   @override
   Widget build(BuildContext context) {
     return  InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => homeScreen(title)));
+        onCategoryItemClick(category);
       },
       child:  Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(imagePath),
+              image: AssetImage(category.imagePath),
               fit: BoxFit.contain,
             ),
           ),
@@ -29,13 +28,13 @@ class item extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: Center(child:
-                Image.asset(IconPath)
+                Image.asset(category.IconPath)
                 ),
               ),
               
               Expanded(
                 child: Center(
-                  child: Text(title, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),),
+                  child: Text(category.title, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),),
                 ),
               )
             ],
@@ -44,4 +43,12 @@ class item extends StatelessWidget {
 
     );
   }
+}
+
+class CategoryData{
+  String imagePath = '';
+  String IconPath = '';
+  String title = '';
+
+  CategoryData(this.imagePath, this.IconPath, this.title);
 }
